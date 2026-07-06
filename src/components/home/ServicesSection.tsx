@@ -65,7 +65,7 @@ const ServicesSection = () => {
                       VIEW PROGRAM
                     </a>
                     <a
-                      href="tel:+919912611119"
+                      href="tel:+918142611119"
                       rel="noopener noreferrer"
                       className="text-xs sm:text-sm bg-red-600 text-white font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-md hover:bg-red-700 transition text-center flex-1 sm:flex-none"
                       onClick={(e) => e.stopPropagation()}

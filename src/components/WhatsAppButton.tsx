@@ -1,8 +1,8 @@
 import React from 'react';
 
 const WhatsAppButton = () => {
-  const phoneNumber = '911234567890'; // Replace with actual WhatsApp number
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hello%20VSource,%20I'm%20interested%20in%20your%20education%20consultancy%20services.`;
+  const phoneNumber = '8142611119'; // Replace with actual WhatsApp number
+  const whatsappUrl = `https://wa.me/message/KPSM7CKHKRF4A1`;
   
   return (
     <a 

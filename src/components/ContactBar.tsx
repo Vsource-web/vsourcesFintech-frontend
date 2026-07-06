@@ -10,8 +10,8 @@ interface ContactBarProps {
 }
 
 const ContactBar: React.FC<ContactBarProps> = ({ visible = true }) => {
-  const whatsappNumber = "919912611119";
-  const phoneNumber = "+919912611119";
+  const whatsappNumber = "8142611119";
+  const phoneNumber = "8142611119";
   const [showMobileBar, setShowMobileBar] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
@@ -97,7 +97,7 @@ const ContactBar: React.FC<ContactBarProps> = ({ visible = true }) => {
 
             {/* WhatsApp */}
             <a
-              href={`https://wa.me/${whatsappNumber}`}
+              href={`https://wa.me/message/KPSM7CKHKRF4A1`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center hover-lift"
@@ -158,7 +158,7 @@ const ContactBar: React.FC<ContactBarProps> = ({ visible = true }) => {
 
             {/* WhatsApp */}
             <a
-              href={`https://wa.me/${whatsappNumber}`}
+              href={`https://wa.me/message/KPSM7CKHKRF4A1`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center hover-lift"
