@@ -410,12 +410,12 @@ const teamMembers = [
     image: img13,
     bio: "10 YEARS WITH VSOURCE",
   },
-  {
-    name: "Mrs. PUSHPALATHA REDDY",
-    position: "DIRECTOR, OVERSEAS",
-    image: img14,
-    bio: "7 YEARS WITH VSOURCE",
-  },
+  // {
+  //   name: "Mrs. PUSHPALATHA REDDY",
+  //   position: "DIRECTOR, OVERSEAS",
+  //   image: img14,
+  //   bio: "7 YEARS WITH VSOURCE",
+  // },
   {
     name: "Mr. MOULALI",
     position: "DIRECTOR, FINTECH",
