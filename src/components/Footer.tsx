@@ -179,16 +179,16 @@ function Footer() {
             <div>
               <h4 className="font-semibold mb-2 text-xl">ANDHRA PRADESH</h4>
               {[
-                {
-                  name: "VIJAYAWADA",
-                  address:
-                    "Vsource, 1st floor, Mouli Towers, Beside Reliance Trends, Benz Circle, Vijayawada, Andhra Pradesh.",
-                },
-                {
-                  name: "TIRUPATHI",
-                  address:
-                    "Vsource, 19-3-1/s, 3rd Floor, Renigunta Rd, Postal Colony, Near Jawa Show Room, Tirupathi - 517501.",
-                },
+                // {
+                //   name: "VIJAYAWADA",
+                //   address:
+                //     "Vsource, 1st floor, Mouli Towers, Beside Reliance Trends, Benz Circle, Vijayawada, Andhra Pradesh.",
+                // },
+                // {
+                //   name: "TIRUPATHI",
+                //   address:
+                //     "Vsource, 19-3-1/s, 3rd Floor, Renigunta Rd, Postal Colony, Near Jawa Show Room, Tirupathi - 517501.",
+                // },
                 {
                   name: "VISAKHAPATNAM",
                   address:

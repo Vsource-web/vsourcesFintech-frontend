@@ -108,16 +108,16 @@ const ContactPage = () => {
                 locationUrl: "https://maps.app.goo.gl/YEPNx4qtezQ4SCjTA",
                 imageUrl: "/assets/images/branches/jntu branch.jpg",
               },
-              {
-                city: "Vijayawada",
-                address:
-                  "1st floor, Mouli Towers, Beside Reliance Trends, Benz Circle, Vijayawada, AP.",
-                phone: "+91 91217 11119",
-                email: "Support@vsourceadmissions.com",
-                hours: "10am to 8pm",
-                locationUrl: "https://maps.app.goo.gl/8S3veFkys9eqbEPJ8",
-                imageUrl: "/assets/images/branches/vijaywada branch.jpeg",
-              },
+              // {
+              //   city: "Vijayawada",
+              //   address:
+              //     "1st floor, Mouli Towers, Beside Reliance Trends, Benz Circle, Vijayawada, AP.",
+              //   phone: "+91 91217 11119",
+              //   email: "Support@vsourceadmissions.com",
+              //   hours: "10am to 8pm",
+              //   locationUrl: "https://maps.app.goo.gl/8S3veFkys9eqbEPJ8",
+              //   imageUrl: "/assets/images/branches/vijaywada branch.jpeg",
+              // },
               {
                 city: "Visakhapatnam",
                 address:
@@ -129,16 +129,16 @@ const ContactPage = () => {
                   "https://www.google.com/maps/place/Annapurna+Nilayam/@17.7260105,83.3154943,15z/data=!4m10!1m2!2m1!1sAnnapurna+Nilayam+2nd+Floor,+Opp+Hotel+Kamat,+Lawson's+Bay+Colony,+Visakhapatnam,+AP.!3m6!1s0x3a3943003fa4956b:0xc818085c92e6c50c!8m2!3d17.7260105!4d83.3345487!15sClVBbm5hcHVybmEgTmlsYXlhbSAybmQgRmxvb3IsIE9wcCBIb3RlbCBLYW1hdCwgTGF3c29uJ3MgQmF5IENvbG9ueSwgVmlzYWtoYXBhdG5hbSwgQVAukgESYXBhcnRtZW50X2J1aWxkaW5nqgHPARABKlQiUGFubmFwdXJuYSBuaWxheWFtIDJuZCBmbG9vciBvcHAgaG90ZWwga2FtYXQgbGF3c29uJ3MgYmF5IGNvbG9ueSB2aXNha2hhcGF0bmFtIGFwKAAyHxABIhvuhInUa5mDOARt2VWc3lqHzM6Cr3G5c1dyBg0yVBACIlBhbm5hcHVybmEgbmlsYXlhbSAybmQgZmxvb3Igb3BwIGhvdGVsIGthbWF0IGxhd3NvbidzIGJheSBjb2xvbnkgdmlzYWtoYXBhdG5hbSBhcOABAA!16s%2Fg%2F11vxmf0vlw?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D",
                 imageUrl: "/assets/images/branches/vizga.webp",
               },
-              {
-                city: "Tirupathi",
-                address:
-                  "19-3-1/s, 3rd Floor, Renigunta Rd, Near Jawa showroom, Tirupathi - 517501.",
-                phone: "+91 91217 11119",
-                email: "Support@vsourceadmissions.com",
-                hours: "10am to 8pm",
-                locationUrl: "https://maps.app.goo.gl/oEAfuChXdMDMHt1H6",
-                imageUrl: "/assets/images/branches/tirupati branch.jpeg",
-              },
+              // {
+              //   city: "Tirupathi",
+              //   address:
+              //     "19-3-1/s, 3rd Floor, Renigunta Rd, Near Jawa showroom, Tirupathi - 517501.",
+              //   phone: "+91 91217 11119",
+              //   email: "Support@vsourceadmissions.com",
+              //   hours: "10am to 8pm",
+              //   locationUrl: "https://maps.app.goo.gl/oEAfuChXdMDMHt1H6",
+              //   imageUrl: "/assets/images/branches/tirupati branch.jpeg",
+              // },
 
               {
                 city: "Bengaluru",
