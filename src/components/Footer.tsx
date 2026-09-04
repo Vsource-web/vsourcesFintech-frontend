@@ -179,21 +179,21 @@ function Footer() {
             <div>
               <h4 className="font-semibold mb-2 text-xl">ANDHRA PRADESH</h4>
               {[
-                // {
-                //   name: "VIJAYAWADA",
-                //   address:
-                //     "Vsource, 1st floor, Mouli Towers, Beside Reliance Trends, Benz Circle, Vijayawada, Andhra Pradesh.",
-                // },
+                {
+                  name: "VIJAYAWADA",
+                  address:
+                    "Vsource, 1st floor, Mouli Towers, Beside Reliance Trends, Benz Circle, Vijayawada, Andhra Pradesh.",
+                },
                 // {
                 //   name: "TIRUPATHI",
                 //   address:
                 //     "Vsource, 19-3-1/s, 3rd Floor, Renigunta Rd, Postal Colony, Near Jawa Show Room, Tirupathi - 517501.",
                 // },
-                {
-                  name: "VISAKHAPATNAM",
-                  address:
-                    "Vsource, RK, Annapurna Nilayam 2nd Floor, Opposite Hotel Kamat, Lawson's Bay Colony, Dr NTR Beach Rd, Visakhapatnam, Andhra Pradesh 530017.",
-                },
+                // {
+                //   name: "VISAKHAPATNAM",
+                //   address:
+                //     "Vsource, RK, Annapurna Nilayam 2nd Floor, Opposite Hotel Kamat, Lawson's Bay Colony, Dr NTR Beach Rd, Visakhapatnam, Andhra Pradesh 530017.",
+                // },
               ].map((branch) => (
                 <div key={branch.name} className="mb-2">
                   <h5 className="font-medium text-md">{branch.name}</h5>
