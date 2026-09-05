@@ -140,16 +140,16 @@ const ContactPage = () => {
               //   imageUrl: "/assets/images/branches/tirupati branch.jpeg",
               // },
 
-              {
-                city: "Bengaluru",
-                address:
-                  "#88, 9th cross G-Block, Sahakar Nagar, Bengaluru-560092, Karnataka.",
-                phone: "+91 91217 11119",
-                email: "Support@vsourceadmissions.com",
-                hours: "10am to 8pm",
-                locationUrl: "https://maps.app.goo.gl/7Jkr9TLvTZmor3sY9",
-                imageUrl: "/assets/images/branches/bangular.webp",
-              },
+              // {
+              //   city: "Bengaluru",
+              //   address:
+              //     "#88, 9th cross G-Block, Sahakar Nagar, Bengaluru-560092, Karnataka.",
+              //   phone: "+91 91217 11119",
+              //   email: "Support@vsourceadmissions.com",
+              //   hours: "10am to 8pm",
+              //   locationUrl: "https://maps.app.goo.gl/7Jkr9TLvTZmor3sY9",
+              //   imageUrl: "/assets/images/branches/bangular.webp",
+              // },
             ].map((branch, index) => (
               <AnimateOnScroll key={index} delay={index * 100}>
                 <div className="flex flex-col h-full bg-white rounded-lg shadow-md overflow-hidden">
