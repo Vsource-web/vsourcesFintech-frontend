@@ -76,7 +76,7 @@ const ServicesSection = () => {
                 </a>
 
                 <a
-                  href="tel:+918142611119"
+                  href="tel:+919121711119"
                   className="text-xs sm:text-sm bg-red-600 text-white font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-md hover:bg-red-700 transition text-center flex-1 sm:flex-none"
                   onClick={(e) => e.stopPropagation()}
                 >

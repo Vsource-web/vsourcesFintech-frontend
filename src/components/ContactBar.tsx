@@ -10,8 +10,8 @@ interface ContactBarProps {
 }
 
 const ContactBar: React.FC<ContactBarProps> = ({ visible = true }) => {
-  const whatsappNumber = "8142611119";
-  const phoneNumber = "8142611119";
+  const whatsappNumber = "9121711119";
+  const phoneNumber = "9121711119";
   const [showMobileBar, setShowMobileBar] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 

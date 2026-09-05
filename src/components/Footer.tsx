@@ -12,7 +12,7 @@ function Footer() {
           {/* Company Info */}
           <div className="space-y-5">
             <p className="text-gray-400 mb-4">
-              Your trusted educational consultancy with 20+ years of experience
+              Your trusted educational consultancy with 21+ years of experience
               in university admissions, overseas education, work visas and
               educational loans.
             </p>
@@ -125,7 +125,7 @@ function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center">
                 <Phone className="w-5 h-5 mr-3 text-primary" />
-                <span className="text-gray-400">+91 8142611119</span>
+                <span className="text-gray-400">+91 9121711119</span>
               </li>
               <li className="flex items-center">
                 <Mail className="w-5 h-5 mr-3 text-primary" />
@@ -147,7 +147,7 @@ function Footer() {
         <div className="border-t border-gray-800 md:pt-8 pt-5">
           <h2 className="text-2xl font-bold mb-6">CORPORATE OFFICE</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Telangana */}
             <div>
               <h4 className="font-semibold mb-2 text-xl">TELANGANA</h4>
@@ -203,7 +203,7 @@ function Footer() {
             </div>
 
             {/* Karnataka */}
-            <div>
+            {/* <div>
               <h4 className="font-semibold mb-2 text-xl">KARNATAKA</h4>
               {[
                 {
@@ -217,7 +217,7 @@ function Footer() {
                   <p className="text-gray-400 text-sm">{branch.address}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
         {/* Bottom Bar */}
