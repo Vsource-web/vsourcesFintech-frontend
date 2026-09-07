@@ -91,7 +91,7 @@ const AboutPage: React.FC = () => {
             </h1>
             <p className="text-xl text-gray-300">
               Learn about our journey, our team, and our mission to provide
-              exceptional educational consultancy for over 20 years.
+              exceptional educational consultancy for over 21 years.
             </p>
           </div>
         </div>
