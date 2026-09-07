@@ -14,7 +14,7 @@ const AboutSection: React.FC = () => {
     },
     {
       id: 2,
-      value: 20,
+      value: 21,
       suffix: "+",
       label: "Years of\nExperience",
       icon: "https://cdn-icons-gif.flaticon.com/15370/15370761.gif",

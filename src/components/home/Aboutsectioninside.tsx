@@ -14,7 +14,7 @@ const AboutSection: React.FC = () => {
     },
     {
       id: 2,
-      value: 20,
+      value: 21,
       suffix: "+",
       label: "Years of Experience",
       icon: "https://cdn-icons-gif.flaticon.com/15370/15370761.gif",
@@ -109,7 +109,7 @@ const AboutSection: React.FC = () => {
               At <span className="font-semibold">VSource Fintech</span>, we
               believe that financial barriers should never stand in the way of
               education. With over{" "}
-              <span className="font-semibold">20 years of expertise</span> in
+              <span className="font-semibold">21 years of expertise</span> in
               financial services, we specialize in{" "}
               <span className="font-semibold">student loans</span> that make
               higher education accessible and affordable for ambitious learners
