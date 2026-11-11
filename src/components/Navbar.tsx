@@ -242,6 +242,7 @@ const NAV_STRUCTURE: NavNode[] = [
   { type: "link", name: "360 View", path: "/view-360" },
   { type: "link", name: "Gallery", path: "/gallery" },
   { type: "link", name: "Branches", path: "/contact" },
+  // { type: "link", name: "Success Stories", path: "/success-stories" },
 ];
 
 function Navbar() {
@@ -315,11 +316,21 @@ function Navbar() {
             src="/assets/images/fintech-logo.webp"
           />
           <img
-            src="/assets/images/vsource-21YearsLogo.png"
+            src="/assets/images/21-Years-Logo.png"
             alt="21 Years Logo"
-            className="h-20 md:h-18 ml-3 w-auto object-contain drop-shadow-md"
+            className="h-16 md:h-18 w-auto object-contain drop-shadow-md"
           />
         </Link>
+
+        {isScrolled && (
+          <div className="flex sm:hidden flex-1 justify-center items-center min-w-0 px-1">
+            <h1 className="text-red-600 font-extrabold text-[15px] leading-[1.3] tracking-wide text-center uppercase whitespace-normal animate-pulse">
+              FREE FLIGHT
+              <br />
+              TICKET
+            </h1>
+          </div>
+        )}
 
         {/* Desktop Navigation – identical layout/behavior */}
         <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">

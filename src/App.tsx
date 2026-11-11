@@ -20,7 +20,10 @@ import ProtectedRoute from "./crm/components/ProtectedRoute";
 import Dashboard from "./crm/pages/Dashboard";
 import DelayedPopupLeads from "./crm/pages/DelayedPopupLeads";
 import AbroadFormLeads from "./crm/pages/AbroadFormLeads";
+import { Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
+const SuccessStories = lazy(() => import("./pages/SuccessStories"));
 const CredilaPage = lazy(() => import("./pages/ourpartner/CredilaPage"));
 const NbfcPage = lazy(() => import("./pages/ourpartner/NbfcPage"));
 const Auxilopage = lazy(() => import("./pages/ourpartner/Auxilopage"));
@@ -115,6 +118,47 @@ const queryClient = new QueryClient({
   },
 });
 
+const FloatingContactButtons = () => {
+  const whatsappNumber = "919121711119";
+  const phoneNumber = "+919121711119";
+
+  return (
+    <div className="fixed right-4 bottom-[30%] md:right-6 md:bottom-[30%] z-[9999] flex flex-col gap-16">
+      {/* Call Now */}
+      <a
+        href={`tel:${phoneNumber}`}
+        aria-label="Call Now"
+        className="group flex items-center gap-3 justify-end"
+      >
+        <span className="bg-white text-gray-800 text-xs font-semibold px-3 py-2 rounded-lg shadow-md opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+          Call Now
+        </span>
+
+        <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#5ac1ff] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
+          <Phone className="text-white w-5 h-5 md:w-6 md:h-6" />
+        </div>
+      </a>
+
+      {/* WhatsApp */}
+      <a
+        href={`https://wa.me/${whatsappNumber}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="group flex items-center gap-3 justify-end"
+      >
+        <span className="bg-white text-gray-800 text-xs font-semibold px-3 py-2 rounded-lg shadow-md opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+          WhatsApp
+        </span>
+
+        <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#25d366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
+          <FaWhatsapp className="text-white w-6 h-6 md:w-7 md:h-7" />
+        </div>
+      </a>
+    </div>
+  );
+};
+
 const AppContent = () => {
   const [showForm, setShowForm] = useState(false);
   const location = useLocation();
@@ -123,15 +167,15 @@ const AppContent = () => {
   const isGoVirtualPage = location.pathname === "/meeting";
 
   // SHOW POPUP AFTER 3 SECONDS
-useEffect(() => {
-  if (crmRoutes) return;
+  useEffect(() => {
+    if (crmRoutes) return;
 
-  const timer = setTimeout(() => {
-    setShowForm(true);
-  }, 3000);
+    const timer = setTimeout(() => {
+      setShowForm(true);
+    }, 3000);
 
-  return () => clearTimeout(timer);
-}, [crmRoutes]);
+    return () => clearTimeout(timer);
+  }, [crmRoutes]);
 
   useEffect(() => {
     AOS.init({
@@ -147,27 +191,26 @@ useEffect(() => {
     AOS.refreshHard();
   }, [location.pathname]);
 
-useEffect(() => {
-  if (crmRoutes) return;
+  useEffect(() => {
+    if (crmRoutes) return;
 
-  const handleScroll = () => {
-    const scrollTop = window.scrollY + window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
+    const handleScroll = () => {
+      const scrollTop = window.scrollY + window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
 
-    if (
-      scrollTop / docHeight >= 0.2 &&
-      !localStorage.getItem("vsource_form_submitted")
-    ) {
-      setShowForm(true);
-      window.removeEventListener("scroll", handleScroll);
-    }
-  };
+      if (
+        scrollTop / docHeight >= 0.2 &&
+        !localStorage.getItem("vsource_form_submitted")
+      ) {
+        setShowForm(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
 
-  window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-  return () => window.removeEventListener("scroll", handleScroll);
-}, [crmRoutes]);
-
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [crmRoutes]);
 
   return (
     <Layout showNavbar={!crmRoutes}>
@@ -181,6 +224,7 @@ useEffect(() => {
               <Route path="/about-us" element={<AboutPage />} />
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/view-360" element={<View360 />} />
+              <Route path="/success-stories" element={<SuccessStories />} />
               <Route
                 path="/services/abroad-education-loan"
                 element={<AbroadEducation />}
@@ -308,62 +352,60 @@ useEffect(() => {
               <Route path="*" element={<NotFound />} />
 
               {/* crm pages */}
-               <Route
-          path="/crm/login"
-          element={<Login />}
-        />
+              <Route path="/crm/login" element={<Login />} />
 
-        <Route
-          path="/crm/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
+              <Route
+                path="/crm/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
 
-        <Route
-          path="/crm/delayed-popup"
-          element={
-            <ProtectedRoute>
-              <DelayedPopupLeads />
-            </ProtectedRoute>
-          }
-        />
+              <Route
+                path="/crm/delayed-popup"
+                element={
+                  <ProtectedRoute>
+                    <DelayedPopupLeads />
+                  </ProtectedRoute>
+                }
+              />
 
-        <Route
-          path="/crm/abroad-form"
-          element={
-            <ProtectedRoute>
-              <AbroadFormLeads />
-            </ProtectedRoute>
-          }
-        />
+              <Route
+                path="/crm/abroad-form"
+                element={
+                  <ProtectedRoute>
+                    <AbroadFormLeads />
+                  </ProtectedRoute>
+                }
+              />
             </Routes>
           </Suspense>
         </main>
 
-        {!isGoVirtualPage && !crmRoutes && <ContactBar />}
-        {!isGoVirtualPage  && !crmRoutes && <Footer />}
+        {/* {!isGoVirtualPage && !crmRoutes && <ContactBar />} */}
+        {!isGoVirtualPage && !crmRoutes && <FloatingContactButtons />}
+        {!isGoVirtualPage && !crmRoutes && <Footer />}
 
-       {!crmRoutes && (
-  <ScrollToTopButton
-    showFormIcon={showFormIcon}
-    onFormIconClick={() => {
-      setShowForm(true);
-      setShowFormIcon(false);
-    }}
-  />
-)}
+        {/* {!crmRoutes && (
+          <ScrollToTopButton
+            showFormIcon={showFormIcon}
+            onFormIconClick={() => {
+              setShowForm(true);
+              setShowFormIcon(false);
+            }}
+          />
+        )} */}
 
         {!crmRoutes && showForm && (
-  <DelayedPopup
-    onMinimize={() => {
-      setShowForm(false);
-      setShowFormIcon(true);
-    }}
-  />
-)}
+          <DelayedPopup
+            onMinimize={() => {
+              setShowForm(false);
+              setShowFormIcon(true);
+            }}
+          />
+        )}
       </div>
     </Layout>
   );
