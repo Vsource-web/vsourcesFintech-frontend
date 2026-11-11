@@ -67,6 +67,25 @@ function Footer() {
             </div>
           </div>
 
+          {/* Services */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4">Our Services</h3>
+            <ul className="space-y-2">
+              {[
+                "100% Education Loan",
+                "Free Flight Ticket",
+                "Admission in your preferred ",
+                "Top UK Universities",
+              ]?.map((service) => (
+                <li key={service}>
+                  <p className="text-gray-400 hover:text-white transition-colors">
+                    {service}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Quick Links */}
           <div className="space-y-5">
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
@@ -80,6 +99,10 @@ function Footer() {
                   name: "Abroad Education Loan",
                   to: "/services/abroad-education-loan",
                 },
+                {
+                  name: "Study in uk",
+                  to: "https://vsourceoverseas.com/study-in-uk",
+                },
               ].map((item, idx) => (
                 <li key={idx}>
                   <Link
@@ -87,32 +110,6 @@ function Footer() {
                     className="text-muted-foreground hover:text-primary  text-gray-400 hover:text-white transition-colors"
                   >
                     {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div className="space-y-5">
-            <h3 className="text-xl font-semibold mb-4">Services</h3>
-            <ul className="space-y-2 text-sm">
-              {[
-                {
-                  name: "Education Loans",
-                  to: "/services/abroad-education-loan",
-                },
-                { name: "Travel Insurance", to: "/services/travel-insurance" },
-                { name: "Forex Card", to: "/services/forex-card" },
-                { name: "Health Insurance", to: "/services/health-insurance" },
-                { name: "Credit Cards", to: "/services/credit-card" },
-              ].map((service, idx) => (
-                <li key={idx}>
-                  <Link
-                    to={service.to}
-                    className="text-muted-foreground hover:text-primary text-gray-400 hover:text-white transition-colors"
-                  >
-                    {service.name}
                   </Link>
                 </li>
               ))}
@@ -133,13 +130,13 @@ function Footer() {
                   Support@vsourcefintech.com
                 </span>
               </li>
-              <li className="flex">
+              {/* <li className="flex">
                 <MapPin className="w-5 h-5 mr-3 text-primary shrink-0 mt-1" />
                 <span className="text-gray-400">
                   Near Shashi Hospital, Metro pillar no-1519, Dilsukhnagar,
                   Hyderabad- 500060, Telangana.
                 </span>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

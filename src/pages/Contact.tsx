@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import SectionTitle from "@/components/SectionTitle";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
+import BranchImageCarousel from "./BranchImageCarousel";
 
 const ContactPage = () => {
   const location = useLocation();
@@ -39,7 +40,10 @@ const ContactPage = () => {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Branches</h1>
             <p className="text-xl text-gray-300">
-              Visit our offices across India for in-person consultations
+              Open All Days Include Sunday
+              <br />
+              (Excluding Public Holidays)
+              <br /> Timings: 11:00 am to 7:30 pm
             </p>
           </div>
         </div>
@@ -54,12 +58,17 @@ const ContactPage = () => {
                 city: "Dilsukhnagar",
                 address:
                   "Vsource, Near Shashi Hospital, Metro pillar no-1519, Dilsukhnagar, Hyderabad- 500060, Telangana.",
+                near: "Near Dilsukhnagar metro station",
                 phone: "+91 91217 11119",
                 email: "Support@vsourceadmissions.com",
                 hours: "11:00 am to 07:30 pm",
                 locationUrl:
                   "https://www.google.com/maps/place/VSource/@17.3692602,78.519197,17z/data=!3m1!4b1!4m5!3m4!1s0x3bcb98f7d166d455:0x1d4049b98242ba23!8m2!3d17.3692602!4d78.5213857",
-                imageUrl: "/assets/images/branches/Dilsukhnagar.jpg",
+                images: [
+                  "/assets/images/branches/Dilsukhnagar.jpg",
+                  "/assets/images/branches/Dilsukhnagar.jpg",
+                  "/assets/images/branches/Dilsukhnagar.jpg",
+                ],
               },
               // {
               //   city: "Ameerpet",
@@ -75,11 +84,16 @@ const ContactPage = () => {
                 city: "KPHB - JNTU",
                 address:
                   "Beside JNTU Metro station Near ICICI Bank, Hyderabad, Telangana.",
+                near: "Near JNTU metro station",
                 phone: "+91 91217 11119",
                 email: "Support@vsourceadmissions.com",
                 hours: "11:00 am to 07:30 pm",
                 locationUrl: "https://maps.app.goo.gl/YEPNx4qtezQ4SCjTA",
-                imageUrl: "/assets/images/branches/jntu branch.jpg",
+                images: [
+                  "/assets/images/branches/jntu-one.jpeg",
+                  "/assets/images/branches/jntu branch.jpg",
+                  "/assets/images/branches/jntu branch.jpg",
+                ],
               },
               {
                 city: "Vijayawada",
@@ -89,7 +103,11 @@ const ContactPage = () => {
                 email: "Support@vsourceadmissions.com",
                 hours: "11:00 am to 07:30 pm",
                 locationUrl: "https://maps.app.goo.gl/8S3veFkys9eqbEPJ8",
-                imageUrl: "/assets/images/branches/vijaywada branch.jpeg",
+                images: [
+                  "/assets/images/branches/vijaywada branch.jpeg",
+                  "/assets/images/branches/vijaywada branch.jpeg",
+                  "/assets/images/branches/vijaywada branch.jpeg",
+                ],
               },
               // {
               //   city: "Visakhapatnam",
@@ -126,33 +144,45 @@ const ContactPage = () => {
             ].map((branch, index) => (
               <AnimateOnScroll key={index} delay={index * 100}>
                 <div className="flex flex-col h-full bg-white rounded-lg shadow-md overflow-hidden">
-                  <div className="h-56 bg-gray-200">
-                    {branch.imageUrl ? (
-                      <img
-                        src={branch.imageUrl}
-                        alt={`${branch.city} Branch`}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-primary/10">
-                        <MapPin className="h-10 w-10 text-primary/60" />
-                      </div>
-                    )}
-                  </div>
+                  <BranchImageCarousel
+                    images={branch.images}
+                    city={branch.city}
+                  />
 
                   <div className="flex flex-col justify-between flex-grow p-6">
                     <div>
                       <h3 className="text-xl font-semibold mb-4">
                         {branch.city} Branch
                       </h3>
-                      <div className="space-y-3">
+                      <div className="space-y-4">
+                        {/* Branch Address */}
+                        <div className="flex items-start gap-3">
+                          <MapPin className="h-5 w-5 text-primary mt-1 shrink-0" />
+                          <span className="text-gray-700 leading-relaxed">
+                            {branch.address}
+                          </span>
+                        </div>
+
+                        {/* Nearby Landmark */}
+                        {branch.near && (
+                          <div className="flex items-center gap-3 pl-8">
+                            <span className="font-semibold text-gray-900 leading-relaxed">
+                              {branch.near}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      {/* <div className="space-y-3">
                         <div className="flex">
                           <MapPin className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                           <span className="text-gray-700">
                             {branch.address}
                           </span>
                         </div>
-                        <div className="flex">
+                        <div>
+                          <b>{branch.near}</b>
+                        </div>
+                        {/* <div className="flex">
                           <Phone className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                           <span className="text-gray-700">{branch.phone}</span>
                         </div>
@@ -163,8 +193,8 @@ const ContactPage = () => {
                         <div className="flex">
                           <Clock className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                           <span className="text-gray-700">{branch.hours}</span>
-                        </div>
-                      </div>
+                        </div> */}
+                      {/* </div> */}
                     </div>
 
                     <a

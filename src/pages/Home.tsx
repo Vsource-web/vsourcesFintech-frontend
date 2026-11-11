@@ -3,7 +3,7 @@ const Hero = lazy(() => import("@/components/Hero"));
 const AboutSection = lazy(() => import("./AboutSection"));
 const Accreditation = lazy(() => import("./AccreditationSection"));
 const ScholarshipsSection = lazy(
-  () => import("@/components/home/ScholarshipsSection")
+  () => import("@/components/home/ScholarshipsSection"),
 );
 const LoanJourney = lazy(() => import("@/components/LoanJourney"));
 const ToolsSection = lazy(() => import("@/components/ToolsSection"));
@@ -14,7 +14,7 @@ const VideoSection = lazy(() => import("@/components/VideoSection"));
 const VideoCarousel = lazy(() => import("@/components/home/VideoCarousel"));
 const Banksloans = lazy(() => import("./Banksloans"));
 const TestimonialsSection = lazy(
-  () => import("@/components/home/TestimonialsSection")
+  () => import("@/components/home/TestimonialsSection"),
 );
 const TrustSection = lazy(() => import("@/components/home/TrustSection"));
 const ServicesSection = lazy(() => import("@/components/home/ServicesSection"));
@@ -37,7 +37,7 @@ export default function Home() {
 
         <Banksloans />
         <VideoSection />
-        <VideoCarousel />
+        {/* <VideoCarousel /> */}
 
         <TestimonialsSection />
         <StartJourneyCTA />
