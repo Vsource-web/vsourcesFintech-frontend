@@ -415,11 +415,11 @@ const EducationLoan: React.FC = () => {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative lg:text-white pt-20  lg:pt-28 overflow-hidden bg-[#0e1221]">
+      <section className="relative lg:text-white pt-28  lg:pt-28 overflow-hidden bg-[#0e1221]">
         <div className="w-full max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative">
           {/* LEFT SIDE CONTENT */}
           <div className="space-y-6">
-            <p className="text-sm opacity-90 flex items-center gap-2">
+            <p className="text-sm opacity-90 flex items-center gap-2 text-white">
               <Link
                 to="/"
                 className="flex items-center gap-1 hover:text-red-600"
@@ -431,7 +431,7 @@ const EducationLoan: React.FC = () => {
               <span>Education Loan</span>
             </p>
 
-            <h1 className="text-3xl md:text-4xl font-bold leading-tight">
+            <h1 className="text-3xl md:text-4xl font-bold leading-tight text-white">
               Student Education Loans
             </h1>
 
@@ -442,7 +442,7 @@ const EducationLoan: React.FC = () => {
                 "Easy Online Application",
                 "Exclusive Student Rewards",
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-2 lg:text-white">
+                <li key={i} className="flex items-center gap-2 text-white">
                   <CheckCircle className="w-5 h-5 text-yellow-300 flex-shrink-0" />
                   {item}
                 </li>
@@ -450,12 +450,12 @@ const EducationLoan: React.FC = () => {
             </ul>
 
             <div className="flex gap-4 flex-wrap">
-              <a
-                href="/tools/gpa-calculator"
+              <Link
+                to="/tools/gpa-calculator"
                 className="px-3 py-2 text-white bg-red-600 font-semibold rounded-lg"
               >
                 Check Eligibility
-              </a>
+              </Link>
 
               <Button
                 variant="secondary"

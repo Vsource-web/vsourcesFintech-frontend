@@ -75,7 +75,7 @@ const WhyChooseLoan: React.FC<WhyChooseLoanProps> = () => {
                 <Users className="h-8 w-8 mr-3 text-red-600" />
                 <div>
                   <h3 className="text-2xl font-bold">
-                    50,000 <span className="text-red-600">+</span>
+                    100,000 <span className="text-red-600">+</span>
                   </h3>
                   <p className="text-white/90">Students Helped</p>
                 </div>
@@ -95,7 +95,7 @@ const WhyChooseLoan: React.FC<WhyChooseLoanProps> = () => {
                 <GraduationCap className="h-8 w-8 mr-3 text-red-600" />
                 <div>
                   <h3 className="text-2xl font-bold">
-                    50 <span className="text-red-600">+</span>
+                    5000 <span className="text-red-600">+</span>
                   </h3>
                   <p className="text-white/90">Countries Covered</p>
                 </div>
