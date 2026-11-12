@@ -39,7 +39,7 @@ const areas = [
   {
     id: "counseling-area",
     label: "Counseling Area",
-    images: ["application-1.webp", "application-2.webp", "application-3.webp"],
+    images: ["counselling-1.webp", "counselling-2.webp", "counselling-3.webp"],
     icon: Users,
   },
   {
