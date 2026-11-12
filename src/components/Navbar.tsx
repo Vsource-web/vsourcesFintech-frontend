@@ -190,14 +190,15 @@ const PARTNERS_SECTIONS: Section[] = [
     heading: "OUR LENDING PARTNERS",
     items: [
       { name: "Credila", path: "/our-partners/credila", icon: Banknote },
-      { name: "NBFC", path: "/our-partners/nbfc", icon: Banknote },
-      { name: "Auxilo", path: "/our-partners/auxilo", icon: Banknote },
-      { name: "Avanse", path: "/our-partners/avanse", icon: Banknote },
+      // { name: "NBFC", path: "/our-partners/nbfc", icon: Banknote },
       {
         name: "Incred Finance",
         path: "/our-partners/incred-finance",
         icon: Banknote,
       },
+      { name: "Avanse", path: "/our-partners/avanse", icon: Banknote },
+      { name: "Axis Bank", path: "/our-partners/axis-bank", icon: Banknote },
+      { name: "Auxilo", path: "/our-partners/auxilo", icon: Banknote },
       {
         name: "MPOWER Financing",
         path: "/our-partners/mpower-financing",
@@ -213,7 +214,6 @@ const PARTNERS_SECTIONS: Section[] = [
         path: "/our-partners/poonawalla",
         icon: Banknote,
       },
-      // { name: "Axis Bank", path: "/our-partners/axis-bank", icon: Banknote },
     ],
   },
   {
@@ -242,7 +242,7 @@ const NAV_STRUCTURE: NavNode[] = [
   { type: "link", name: "360 View", path: "/view-360" },
   { type: "link", name: "Gallery", path: "/gallery" },
   { type: "link", name: "Branches", path: "/contact" },
-  // { type: "link", name: "Success Stories", path: "/success-stories" },
+  { type: "link", name: "Success Stories", path: "/success-stories" },
 ];
 
 function Navbar() {
