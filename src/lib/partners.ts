@@ -12,16 +12,10 @@ export const partners: Partner[] = [
     path: "/our-partners/credila",
   },
   {
-    name: "NBFC",
-    logo: "/assets/images/partners/nbfc.webp",
-    slug: "nbfc",
-    path: "/our-partners/nbfc",
-  },
-  {
-    name: "Auxilo",
-    logo: "/assets/images/partners/auxilo.webp",
-    slug: "auxilo",
-    path: "/our-partners/auxilo",
+    name: "INCRED Finance",
+    logo: "/assets/images/partners/incred.webp",
+    slug: "incred-finance",
+    path: "/our-partners/incred-finance",
   },
   {
     name: "Avanse",
@@ -29,12 +23,24 @@ export const partners: Partner[] = [
     slug: "avanse",
     path: "/our-partners/avanse",
   },
-
   {
-    name: "INCRED Finance",
-    logo: "/assets/images/partners/incred.webp",
-    slug: "incred-finance",
-    path: "/our-partners/incred-finance",
+    name: "Axis Bank",
+    logo: "/assets/images/partners/axis.webp",
+    slug: "axis-bank",
+    path: "/our-partners/axis-bank",
+  },
+
+  // {
+  //   name: "NBFC",
+  //   logo: "/assets/images/partners/nbfc.webp",
+  //   slug: "nbfc",
+  //   path: "/our-partners/nbfc",
+  // },
+  {
+    name: "Auxilo",
+    logo: "/assets/images/partners/auxilo.webp",
+    slug: "auxilo",
+    path: "/our-partners/auxilo",
   },
   {
     name: "MPOWER Financing",
@@ -54,10 +60,4 @@ export const partners: Partner[] = [
     slug: "poonawalla",
     path: "/our-partners/poonawalla",
   },
-  // {
-  //   name: "Axis Bank",
-  //   logo: "/assets/images/partners/axis.webp",
-  //   slug: "axis-bank",
-  //   path: "/our-partners/axis-bank",
-  // },
 ];

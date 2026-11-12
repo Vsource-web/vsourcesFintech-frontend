@@ -13,7 +13,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import HeroSkeleton from "./components/HeroSkeleton";
 import DelayedPopup from "./components/DelayedPopup";
-import Footer from "./components/Footer";
 import Poonawalla from "./pages/ourpartner/poonawallapage";
 import Login from "./crm/pages/Login";
 import ProtectedRoute from "./crm/components/ProtectedRoute";
@@ -22,7 +21,9 @@ import DelayedPopupLeads from "./crm/pages/DelayedPopupLeads";
 import AbroadFormLeads from "./crm/pages/AbroadFormLeads";
 import { Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import LazyRender from "./utils/LazyRender";
 
+const Footer = lazy(() => import("./components/Footer"));
 const SuccessStories = lazy(() => import("./pages/SuccessStories"));
 const CredilaPage = lazy(() => import("./pages/ourpartner/CredilaPage"));
 const NbfcPage = lazy(() => import("./pages/ourpartner/NbfcPage"));
@@ -314,7 +315,7 @@ const AppContent = () => {
 
               {/* <Route path="/our-partners" element={<Resources />} /> */}
               <Route path="/our-partners/credila" element={<CredilaPage />} />
-              <Route path="/our-partners/nbfc" element={<NbfcPage />} />
+              {/* <Route path="/our-partners/nbfc" element={<NbfcPage />} /> */}
               <Route path="/our-partners/auxilo" element={<Auxilopage />} />
               <Route path="/our-partners/avanse" element={<AvansePage />} />
               <Route
@@ -330,7 +331,7 @@ const AppContent = () => {
                 element={<ProdigyFinancePage />}
               />
               <Route path="/our-partners/poonawalla" element={<Poonawalla />} />
-              {/* <Route path="/our-partners/axis-bank" element={<AxisPage />} /> */}
+              <Route path="/our-partners/axis-bank" element={<AxisPage />} />
               <Route
                 path="/our-partners/compare-loan-offers"
                 element={<CompareLoanOffers />}
@@ -386,7 +387,11 @@ const AppContent = () => {
 
         {/* {!isGoVirtualPage && !crmRoutes && <ContactBar />} */}
         {!isGoVirtualPage && !crmRoutes && <FloatingContactButtons />}
-        {!isGoVirtualPage && !crmRoutes && <Footer />}
+        {!isGoVirtualPage && !crmRoutes && (
+          <LazyRender minHeight="100vh">
+            <Footer />
+          </LazyRender>
+        )}
 
         {/* {!crmRoutes && (
           <ScrollToTopButton

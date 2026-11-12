@@ -1,3 +1,4 @@
+import LazyRender from "@/utils/LazyRender";
 import { lazy, Suspense } from "react";
 const Hero = lazy(() => import("@/components/Hero"));
 const AboutSection = lazy(() => import("./AboutSection"));
@@ -22,26 +23,56 @@ const HeroSkeleton = lazy(() => import("@/components/HeroSkeleton"));
 
 export default function Home() {
   return (
-    <Suspense fallback={<HeroSkeleton />}>
-      <div className="min-h-screen">
+    <div className="min-h-screen">
+      <Suspense fallback={<HeroSkeleton />}>
         <Hero />
         <AboutSection />
+      </Suspense>
 
+      <LazyRender minHeight="60vh">
         <Accreditation />
+      </LazyRender>
+
+      <LazyRender minHeight="100vh">
         <ScholarshipsSection />
+      </LazyRender>
+
+      <LazyRender minHeight="80vh">
         <TrustSection />
+      </LazyRender>
+
+      <LazyRender minHeight="100vh">
         <ServicesSection />
+      </LazyRender>
+
+      <LazyRender minHeight="80vh">
         <LoanJourney />
+      </LazyRender>
+
+      <LazyRender minHeight="70vh">
         <ToolsSection />
+      </LazyRender>
+
+      <LazyRender minHeight="100vh">
         <WhyChooseLoan />
+      </LazyRender>
 
+      <LazyRender minHeight="70vh">
         <Banksloans />
-        <VideoSection />
-        {/* <VideoCarousel /> */}
+      </LazyRender>
 
+      <LazyRender minHeight="100vh">
+        <VideoSection />
+      </LazyRender>
+
+      {/* <VideoCarousel /> */}
+      <LazyRender minHeight="80vh">
         <TestimonialsSection />
+      </LazyRender>
+
+      <LazyRender minHeight="90vh">
         <StartJourneyCTA />
-      </div>
-    </Suspense>
+      </LazyRender>
+    </div>
   );
 }

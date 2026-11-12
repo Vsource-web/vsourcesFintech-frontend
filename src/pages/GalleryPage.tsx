@@ -6,18 +6,60 @@ import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import BannerSkeleton from "@/Loaders/about-us/BannerSkeleton";
 import { Gallery } from "@/lib/types/Gallery";
+import { motion, AnimatePresence } from "framer-motion";
+import { Building2, Coffee, FileCheck, Users } from "lucide-react";
+
+// Automatically import all static branch images
+const branchImages = import.meta.glob<string>(
+  "/src/assets/branches/**/*.{jpg,jpeg,png,webp,avif}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  },
+);
 
 export const fetchGallery = async () => {
   const { data } = await axios.get(
-    `${
-      import.meta.env.VITE_CMS_GLOBALURL
-    }/api/gallery?populate[blocks][on][gallery.journey-images][populate][journey_images]=true&populate[blocks][on][gallery.gallery-360][populate]=*`
+    `${import.meta.env.VITE_CMS_GLOBALURL}/api/gallery?populate[blocks][on][gallery.journey-images][populate][journey_images]=true&populate[blocks][on][gallery.gallery-360][populate]=*`,
   );
+
   return data.data || {};
 };
 
+const BRANCH_IMAGE_BASE = "/assets/images/branches";
+
+const branches = [
+  { id: "dilsuknagar", label: "Dilsuknagar" },
+  { id: "jntu", label: "JNTU" },
+  { id: "vijayawada", label: "Vijayawada" },
+];
+
+const areas = [
+  {
+    id: "counseling-area",
+    label: "Counseling Area",
+    images: ["application-1.webp", "application-2.webp", "application-3.webp"],
+    icon: Users,
+  },
+  {
+    id: "application-processing-uk",
+    label: "Application Processing - UK",
+    images: ["application-1.webp", "application-2.webp", "application-3.webp"],
+    icon: FileCheck,
+  },
+  {
+    id: "cafeteria",
+    label: "Cafeteria",
+    images: ["cafeteria.webp", "cafeteria-1.webp", "cafeteria-2.webp"],
+    icon: Coffee,
+  },
+];
+
 const GalleryPage = () => {
   const [activeTab, setActiveTab] = useState("all");
+  const [activeBranch, setActiveBranch] = useState("dilsuknagar");
+  const [activeArea, setActiveArea] = useState("counseling-area");
 
   const {
     data: gallery,
@@ -34,21 +76,31 @@ const GalleryPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (isError) {
-    toast.error("failed to load gallery");
-    console.error("failed to gallery", error);
-    return null;
-  }
+  useEffect(() => {
+    if (isError) {
+      toast.error("Failed to load gallery");
+      console.error("Failed to load gallery:", error);
+    }
+  }, [isError, error]);
+
+  if (isError) return null;
 
   if (isLoading || !gallery) {
     return <BannerSkeleton />;
   }
 
   const journeyBlock = gallery?.blocks?.find(
-    (block) => block?.__component === "gallery.journey-images"
+    (block) => block?.__component === "gallery.journey-images",
   );
 
   const journeyImages = journeyBlock?.journey_images || [];
+
+  const selectedArea = areas.find((area) => area.id === activeArea);
+
+  const selectedBranchImages =
+    selectedArea?.images.map(
+      (image) => `${BRANCH_IMAGE_BASE}/${activeBranch}/${image}`,
+    ) || [];
 
   return (
     <>
@@ -58,6 +110,7 @@ const GalleryPage = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             {gallery?.title || "Our Visual Journey"}
           </h1>
+
           <p className="text-xl text-gray-300">
             {gallery?.subheading ||
               "Explore our offices, photos, and student success moments through our visual gallery"}
@@ -66,52 +119,127 @@ const GalleryPage = () => {
       </section>
 
       {/* Gallery */}
-      <section className="py-16 md:py-16">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
-          {/* Tabs */}
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-gray-100 rounded-lg p-1">
-              {["all", "photos", "students"]?.map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                    activeTab === tab
-                      ? "bg-white shadow-sm text-primary"
-                      : "text-gray-600 hover:text-gray-900"
-                  }`}
-                >
-                  {tab === "students"
-                    ? "Student Success"
-                    : tab.charAt(0).toUpperCase() + tab.slice(1)}
-                </button>
-              ))}
+          {/* Main Tabs */}
+          <div className="w-full mb-12 overflow-x-auto overflow-y-hidden">
+            <div className="flex w-max min-w-full justify-start sm:justify-center">
+              <div className="inline-flex w-max bg-gray-100 rounded-xl p-1.5 gap-1">
+                {["all", "photos", "students", "office"].map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`shrink-0 whitespace-nowrap px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                      activeTab === tab
+                        ? "bg-white shadow-md text-primary"
+                        : "text-gray-600 hover:text-gray-900"
+                    }`}
+                  >
+                    {tab === "students"
+                      ? "Student Success"
+                      : tab === "office"
+                        ? "Our Office"
+                        : tab.charAt(0).toUpperCase() + tab.slice(1)}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Student Success Section */}
+          {/* Student Success */}
           {(activeTab === "students" || activeTab === "all") && (
             <Successstories />
           )}
 
-          {/* Regular Gallery Grid — hide when a location tab is active */}
-          {activeTab !== "students" && journeyImages.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {journeyImages?.map((item, index) => (
-                <AnimateOnScroll key={item?.id || index} delay={index * 100}>
-                  <div className="bg-white rounded-lg overflow-hidden shadow-md group relative">
-                    <div className="relative h-64 overflow-hidden">
+          {/* Regular Gallery */}
+          {activeTab !== "students" &&
+            activeTab !== "office" &&
+            journeyImages.length > 0 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {journeyImages.map((item, index) => (
+                  <AnimateOnScroll key={item?.id || index} delay={index * 100}>
+                    <div className="bg-white rounded-xl overflow-hidden shadow-md group">
+                      <div className="relative h-64 overflow-hidden">
+                        <img
+                          src={`https://backend.vsourceoverseas.com${item?.url}`}
+                          alt={item?.name || "Gallery Photo"}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    </div>
+                  </AnimateOnScroll>
+                ))}
+              </div>
+            )}
+
+          {/* OUR OFFICE SECTION */}
+          {activeTab === "office" && (
+            <div className="max-w-7xl mx-auto">
+              {/* Branch Tabs */}
+              <div className="flex justify-center mb-8">
+                <div className="flex flex-wrap justify-center gap-3">
+                  {branches.map((branch) => (
+                    <button
+                      key={branch.id}
+                      onClick={() => {
+                        setActiveBranch(branch.id);
+                        setActiveArea("counseling-area");
+                      }}
+                      className={`px-6 py-3 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 border ${
+                        activeBranch === branch.id
+                          ? "bg-primary text-white border-primary shadow-lg shadow-blue-900/15"
+                          : "bg-white text-gray-600 border-gray-200 hover:border-primary hover:text-primary"
+                      }`}
+                    >
+                      {branch.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Branch Area Tabs */}
+              <div className="flex justify-center mb-10">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-4xl">
+                  {areas.map((area) => {
+                    const Icon = area.icon;
+
+                    return (
+                      <button
+                        key={area.id}
+                        onClick={() => setActiveArea(area.id)}
+                        className={`flex items-center justify-center gap-2 px-4 py-4 rounded-xl border transition-all duration-300 text-sm font-semibold ${
+                          activeArea === area.id
+                            ? "bg-blue-50 border-primary text-primary shadow-sm"
+                            : "bg-white border-gray-200 text-gray-600 hover:border-blue-300 hover:bg-gray-50"
+                        }`}
+                      >
+                        <Icon size={19} />
+                        <span>{area.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Selected Branch / Area Gallery */}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {selectedBranchImages.map((image, index) => (
+                  <AnimateOnScroll key={image} delay={index * 80}>
+                    <div className="relative h-64 md:h-72 rounded-2xl overflow-hidden bg-gray-100 shadow-md group">
                       <img
-                        src={`https://backend.vsourceoverseas.com${item?.url}`}
-                        alt={item?.name || "Gallery Photo"}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        src={image}
+                        alt={`${activeBranch} ${selectedArea?.label} ${index + 1}`}
                         loading="lazy"
                         decoding="async"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     </div>
-                  </div>
-                </AnimateOnScroll>
-              ))}
+                  </AnimateOnScroll>
+                ))}
+              </div>
             </div>
           )}
         </div>
